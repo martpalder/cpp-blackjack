@@ -2,6 +2,7 @@
 #define OUTPUT_HPP
 
 #include <vector>
+#include <iostream>
 #include "card.hpp"
 
 void printCards(std::vector<Card>* playerCards, std::vector<Card>* dealerCards)
