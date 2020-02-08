@@ -2,13 +2,14 @@
 #define ENTITY_HPP
 
 #include <vector>
-#include "card.hpp"
 
 class Entity {
+	std::vector<unsigned short> cards;
+
 public:
-	void AddCard(Card aCard)
+	void AddCard(unsigned short card)
 	{
-		cards.push_back(aCard);
+		cards.push_back(card);
 	}
 	
 	void RemoveCard()
@@ -16,7 +17,7 @@ public:
 		cards.pop_back();
 	}
 	
-	std::vector<Card>* GetCards()
+	std::vector<unsigned short>* GetCards()
 	{
 		return &cards;
 	}
@@ -29,15 +30,12 @@ public:
 	unsigned short GetScore()
 	{
 		unsigned short score = 0;
-		for (const Card& card : cards) {
-			score += card.value;
+		for (const unsigned short& card : cards) {
+			score += card;
 		}
 		
 		return score;
 	}
-
-private:
-	std::vector<Card> cards;
 };
 
 #endif

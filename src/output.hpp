@@ -3,18 +3,17 @@
 
 #include <vector>
 #include <iostream>
-#include "card.hpp"
 
-void printCards(std::vector<Card>* playerCards, std::vector<Card>* dealerCards)
+void printCards(std::vector<unsigned short>* playerCards, std::vector<unsigned short>* dealerCards)
 {
 	std::cout << "\nPlayer Cards: " << std::endl;
-	for (const Card& card : *playerCards) {
-		std::cout << card.value << '\t';
+	for (const unsigned short& card : *playerCards) {
+		std::cout << card << '\t';
 	}
 	
 	std::cout << "\nDealer Cards: " << std::endl;
-	for (const Card& card : *dealerCards) {
-		std::cout << card.value << '\t';
+	for (const unsigned short& card : *dealerCards) {
+		std::cout << card << '\t';
 	}
 }
 

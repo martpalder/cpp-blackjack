@@ -91,7 +91,7 @@ int main() {
 			printCards(player.GetCards(), dealer.GetCards());
 			printScores(player.GetScore(), dealer.GetScore());
 			
-			// if there's no moves: check for blackjack
+			// if there's no previous moves: check for blackjack
 			if (!moves) blackjack = isBlackjack(player.GetScore(), dealer.GetScore());
 			
 			// check for winner
@@ -217,12 +217,12 @@ bool playAgain()
 
 void moveCards(Deck* deck, Entity* player, Entity* dealer)
 {
-	for (const Card& card : *player->GetCards()) {
+	for (const unsigned short& card : *player->GetCards()) {
 		deck->AddCard(card);
 		player->RemoveCard();
 	}
 	
-	for (const Card& card : *dealer->GetCards()) {
+	for (const unsigned short& card : *dealer->GetCards()) {
 		deck->AddCard(card);
 		dealer->RemoveCard();
 	}

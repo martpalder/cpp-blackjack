@@ -3,20 +3,20 @@
 
 #include <vector>
 #include <algorithm>
-#include "card.hpp"
 
 class Deck {
+	std::vector<unsigned short> cards;
+
 public:
 	Deck()
 	{
 		for (unsigned short i = 2; i < 12; ++i) {
 			for (unsigned short j = 0; j < 4; ++j) {
-				Card aCard(i);
-				cards.push_back(aCard);
+				cards.push_back(i);
 				if (i == 10) {
-					for (unsigned short k = 0; k < 3; ++k) {
-						cards.push_back(aCard);
-					}
+					cards.push_back(i);
+					cards.push_back(i);
+					cards.push_back(i);
 				}
 			}
 		}
@@ -27,9 +27,9 @@ public:
 		std::random_shuffle(cards.begin(), cards.end());
 	}
 	
-	void AddCard(Card aCard)
+	void AddCard(unsigned short card)
 	{
-		cards.push_back(aCard);
+		cards.push_back(card);
 	}
 	
 	void RemoveCard()
@@ -37,7 +37,7 @@ public:
 		cards.pop_back();
 	}
 	
-	std::vector<Card>* GetCards()
+	std::vector<unsigned short>* GetCards()
 	{
 		return &cards;
 	}
@@ -46,9 +46,6 @@ public:
 	{
 		return cards.size();
 	}
-
-private:
-	std::vector<Card> cards;
 };
 
 #endif
