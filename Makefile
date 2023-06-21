@@ -1,11 +1,11 @@
 build:
-	g++ src/game.cpp -O2 -o bin/Blackjack
+	g++ -O2 src/game.cpp -o./Blackjack
 
 clean:
-	del bin\Blackjack.exe
+	del ./Blackjack
 
 debug:
-	gdb bin/Blackjack
+	gdb ./Blackjack
 
 run:
-	bin/Blackjack
+	./Blackjack
